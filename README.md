@@ -28,7 +28,7 @@ And let's start	your Vagrant box:
 Once the setup is complete, just run:
     
     $ vagrant ssh
-You are in! Now, let's train your first neuronal network:
+You are in! Now, let's train your first recurrent neuronal network:
 
     $ python keras/examples/addition_rnn.py
 
@@ -37,3 +37,14 @@ You are in! Now, let's train your first neuronal network:
 * [Keras](http://keras.io/)
 * [Theano](http://deeplearning.net/software/theano/)
 * [TensorFlow](https://www.tensorflow.org/versions/r0.7/api_docs/index.html)
+
+# Tips and tricks
+
+To access files present on your computer from your Vagrant/Ubuntu machine, go to the `/vagrant` directory which is mounted to the directory you started you Vagrant box from:
+    $ cd /vagrant/
+
+
+If you want to start your virtual machine from scratch, disconnect from it and from your host computer run:
+
+    $ vagrant destroy
+    $ vagrant up
