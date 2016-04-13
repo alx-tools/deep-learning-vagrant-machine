@@ -7,6 +7,10 @@ What's in the box:
 * Theano
 * Tensorflow
 
+![Keras](http://imgur.com/nE0of8d.jpg )
+![Theano](http://i.imgur.com/Bb5SHxW.png "Theano")
+![TensorFlow](http://imgur.com/rwISEz5.jpg "TensorFlow")
+
 # Requirements
 
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
@@ -41,8 +45,12 @@ You are in! Now, let's train your first recurrent neuronal network:
 # Tips and tricks
 
 To access files present on your computer from your Vagrant/Ubuntu machine, go to the `/vagrant` directory which is mounted to the directory you started you Vagrant box from:
+
     $ cd /vagrant/
 
+To get a list of available vagrant commands (from your host computer), just type:
+
+    $ vagrant
 
 If you want to start your virtual machine from scratch, disconnect from it and from your host computer run:
 
