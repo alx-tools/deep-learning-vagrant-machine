@@ -23,10 +23,7 @@ You must install VirtubalBox and Vagrant before continuing.
 
 Once Vagrant and VirtualBox are installed, clone this repository or import `Vagrantfile` and `bootstrap.sh` in a directory.
 
-From this directory, let's initiate your Vagrant box by typing in your terminal (it might take some time to download the Ubuntu image):
-    
-    $ vagrant init
-And let's start	your Vagrant box:
+From this directory, let's start your Vagrant box by typing in your terminal (it might take some time to download the Ubuntu image):
     
     $ vagrant up
 Once the setup is complete, just run:
