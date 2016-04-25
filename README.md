@@ -40,13 +40,9 @@ If you can see that, it means that you setup is working and that you are trainin
 
 To go through the code step by step, type:
 
-    $ jupyter notebook
+    $ jupyter notebook --no-browser --ip=0.0.0.0 --FileContentsManager.root_dir=/home/vagrant/keras/examples/
 
 Open a browser and browse http://127.0.0.1:8888
-
-Then type:
-
-    $ jupyter notebook --no-browser --ip=0.0.0.0 --FileContentsManager.root_dir=/home/vagrant/keras/examples/
 
 # Tips and tricks
 
