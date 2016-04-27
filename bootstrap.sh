@@ -36,5 +36,6 @@ pip_install 'required Python libraries' pyyaml cython
 install 'hdf5' libhdf5-7
 pip_install 'ipython' ipython
 pip_install 'jupyter' jupyter
+install 'matplotlib' matplotlib
 
 echo 'All set!'
