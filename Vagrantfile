@@ -13,4 +13,5 @@ Vagrant.configure('2') do |config|
   end
   
   config.vm.provision :shell, path: 'bootstrap.sh', keep_color: true
+  config.vm.synced_folder "notebooks/", "/home/vagrant/notebooks"
 end
