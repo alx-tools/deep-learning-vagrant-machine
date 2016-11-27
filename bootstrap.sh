@@ -29,7 +29,7 @@ mkdir /home/vagrant/keras
 git clone https://github.com/fchollet/keras /home/vagrant/keras/ >/dev/null 2>&1
 
 # Tensorflow
-pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.7.1-cp27-none-linux_x86_64.whl
+pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
 
 # Miscellaneous
 pip_install 'required Python libraries' pyyaml cython
