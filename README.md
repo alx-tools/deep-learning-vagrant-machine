@@ -44,6 +44,8 @@ To go through the code step by step, type:
 
 Open a browser and browse http://127.0.0.1:8888
 
+Looking for some resources to get started with Deep Learning? Check out our [introductory workshops](https://github.com/holbertonschool/deep-learning).
+
 # Tips and tricks
 
 To access files present on your computer from your Vagrant/Ubuntu machine, go to the `/vagrant` directory which is mounted to the directory you started you Vagrant box from:
