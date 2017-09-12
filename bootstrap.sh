@@ -33,10 +33,7 @@ chown -R vagrant:vagrant /home/vagrant/anaconda
 
 
 # Tensorflow
-/home/vagrant/anaconda/bin/pip install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl
+/home/vagrant/anaconda/bin/pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl
  
 # Keras
-/home/vagrant/anaconda/bin/pip install 'keras' keras
-
-
-
+/home/vagrant/anaconda/bin/pip install keras
