@@ -1,43 +1,39 @@
 #!/bin/bash
-## Author: Justice Amoh
-## Description: Bootstrap script for Vagrant Machine. The VM image is configured
-## for the course ENGS108, Applied Machine Learning, Dartmouth College
-## Adapted from: bootstrap.sh by Holberton School
+# Author: Justice Amoh
+# Description: Bootstrap script for Vagrant Machine. The VM image is configured
+# for the course ENGS108, Applied Machine Learning, Dartmouth College
+# Adapted from: bootstrap.sh by Holberton School
 
-function install {
-    echo installing "$1"
-    shift
-    apt-get -y install "$@" >/dev/null 2>&1
-}
+# Anaconda
+apt-get update -q
+su - vagrant
 
-function pip_install {
-    echo installing "$1"
-    shift
-    pip install "$@" >/dev/null 2>&1
-}
+echo installing Anaconda
+miniconda=Miniconda2-4.3.21-Linux-x86_64.sh
+cd /vagrant
+if [[ ! -f $miniconda ]]; then
+    wget --quiet http://repo.continuum.io/miniconda/$miniconda
+fi
+chmod +x $miniconda
+./$miniconda -b -p /home/vagrant/anaconda
 
-echo "updating package information"
-apt-get -y update >/dev/null 2>&1
-
-# Theano
-install 'pip' python-pip
-install 'theano dependencies' python-numpy python-scipy python-dev python-pip python-nose g++ git libatlas3gf-base libatlas-dev
+echo 'export PATH="/home/vagrant/anaconda/bin:$PATH"' >> /home/vagrant/.bashrc
+source /home/vagrant/.bashrc
+chown -R vagrant:vagrant /home/vagrant/anaconda
+/home/vagrant/anaconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
 
 
-# Keras
-pip_install 'keras' keras
-mkdir /home/vagrant/keras
-git clone https://github.com/fchollet/keras /home/vagrant/keras/ >/dev/null 2>&1
+# Conda Installations
+/home/vagrant/anaconda/bin/conda install -y numpy
+/home/vagrant/anaconda/bin/conda install -y matplotlib
+/home/vagrant/anaconda/bin/conda install -y pandas
+/home/vagrant/anaconda/bin/conda install -y ipython
+/home/vagrant/anaconda/bin/conda install -y h5py
+/home/vagrant/anaconda/bin/conda install -y jupyter
 
 # Tensorflow
-pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
-
-# Miscellaneous
-pip_install 'required Python libraries' pyyaml cython
-install 'hdf5' libhdf5-7 libhdf5-dev
-pip_install 'h5py' h5py
-pip_install 'ipython' ipython
-pip_install 'jupyter' jupyter
-install 'matplotlib' matplotlib
-
-echo 'All set!'
+/home/vagrant/anaconda/bin/conda config --add channels conda-forge
+/home/vagrant/anaconda/bin/conda install -y tensorflow
+ 
+# Keras
+/home/vagrant/anaconda/bin/pip install keras
