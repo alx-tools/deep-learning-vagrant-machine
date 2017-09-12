@@ -57,8 +57,8 @@ If you want to start your virtual machine from scratch, disconnect from it and f
 
 # Known Errors and Fixes
 
-## `vagrant up` command exits with an error saying that `forwarded port to 8888` is already in use by the host machine.
-# On Mac: 
+### `vagrant up` command exits with an error saying that `forwarded port to 8888` is already in use by the host machine.
+## On Mac: 
 - Run `sudo lsof -i:8888`. This is to find the process which is using port `8888`.
 - Copy the process's `PID`. This is the ProcessID associated to that process.
 - Run `kill <Paste ProcessID here>`. This is to terminate the process.
