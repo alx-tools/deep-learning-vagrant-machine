@@ -22,7 +22,7 @@ apt-get -y update >/dev/null 2>&1
 # Theano
 install 'pip' python-pip
 install 'theano dependencies' python-numpy python-scipy python-dev python-pip python-nose g++ git libatlas3gf-base libatlas-dev
-pip_install 'theano' theano
+
 
 # Keras
 pip_install 'keras' keras
