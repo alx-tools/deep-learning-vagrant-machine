@@ -30,6 +30,7 @@ chown -R vagrant:vagrant /home/vagrant/anaconda
 /home/vagrant/anaconda/bin/conda install -y ipython
 /home/vagrant/anaconda/bin/conda install -y h5py
 /home/vagrant/anaconda/bin/conda install -y jupyter
+/home/vagrant/anaconda/bin/conda install -y seaborn
 
 # Tensorflow
 /home/vagrant/anaconda/bin/conda config --add channels conda-forge
@@ -37,6 +38,3 @@ chown -R vagrant:vagrant /home/vagrant/anaconda
  
 # Keras
 /home/vagrant/anaconda/bin/pip install keras
-
-# Seaborn
-/home/vagrant/anaconda/bin/conda install -y seaborn
