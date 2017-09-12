@@ -68,7 +68,7 @@ If you want to start your virtual machine from scratch, disconnect from it and f
 
 - Press `q` and then `y` to exit that screen.
 - Press `ctrl` + `c` to exit Jupyter.
-- Type `jupyter notebook --ip=0.0.0.0 --port=8888`.
+- Type `jupyter notebook --no-browser --ip=0.0.0.0 --port=8888`.
 - Jupyter Notebook should pop up in your browser.   
 
 
