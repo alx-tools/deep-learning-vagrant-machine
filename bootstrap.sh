@@ -1,43 +1,49 @@
 #!/bin/bash
-###################################
-# Deep Learning Vagrant Machine   #
-# Originally by: Holberton School #
-# Modified by: Justice Amoh       #
-###################################
-function install {
+## Author: Justice Amoh
+## Description: Bootstrap script for Vagrant Machine. The VM image is configured
+## for the course ENGS108, Applied Machine Learning, Dartmouth College
+## Adapted from: bootstrap.sh by Holberton School
+
+# Anaconda
+apt-get update -q
+su - vagrant
+
+echo installing Anaconda
+miniconda=Miniconda2-4.3.21-Linux-x86_64.sh
+cd /vagrant
+if [[ ! -f $miniconda ]]; then
+    wget --quiet http://repo.continuum.io/miniconda/$miniconda
+fi
+chmod +x $miniconda
+./$miniconda -b -p /home/vagrant/anaconda
+
+echo 'export PATH="/home/vagrant/anaconda/bin:$PATH"' >> /home/vagrant/.bashrc
+source /home/vagrant/.bashrc
+chown -R vagrant:vagrant /home/vagrant/anaconda
+/home/vagrant/anaconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
+
+
+# Helper Functions
+function conda_install {
     echo installing "$1"
     shift
-    apt-get -y install "$@" >/dev/null 2>&1
+    conda install -y "$@" >/dev/null 2>&1
 }
 
 function pip_install {
     echo installing "$1"
     shift
-    pip install "$@" >/dev/null 2>&1
+    pip install -y "$@" >/dev/null 2>&1
 }
 
-echo "updating package information"
-apt-get -y update >/dev/null 2>&1
-
-# Theano
-# install 'pip' python-pip
-# install 'theano dependencies' python-numpy python-scipy python-dev python-pip python-nose g++ git libatlas3gf-base libatlas-dev
-# pip_install 'theano' theano
-
-# Keras
-pip_install 'keras' keras
-mkdir /home/vagrant/keras
-git clone https://github.com/fchollet/keras /home/vagrant/keras/ >/dev/null 2>&1
+# Conda Installations
+conda_install numpy matplotlib pandas ipython h5py jupyter seaborn
 
 # Tensorflow
-pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
+pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl
+ 
+# Keras
+pip_install 'keras' keras
 
-# Miscellaneous
-# pip_install 'required Python libraries' pyyaml cython
-# install 'hdf5' libhdf5-7 libhdf5-dev
-# pip_install 'h5py' h5py
-# pip_install 'ipython' ipython
-# pip_install 'jupyter' jupyter
-# install 'matplotlib' matplotlib
 
-echo 'All set!'
+
