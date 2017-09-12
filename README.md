@@ -64,6 +64,13 @@ If you want to start your virtual machine from scratch, disconnect from it and f
 - Run `kill <Paste ProcessID here>`. This is to terminate the process.
 - Run `vagrant up` again.
 
+### When inside the Virtual Machine (after runing `vagrant ssh`) running `Jupyter Notebook` results in a screen saying that `Jupyter Notebook requires Javascript`.
+
+- Press `q` and then `y` to exit that screen.
+- Press `ctrl` + `c` to exit Jupyter.
+- Type `jupyter notebook --ip=0.0.0.0 --port=8888`.
+- Jupyter Notebook should pop up in your browser.   
+
 
 # Other Resources
 For PyCharm integration with your Vagrant VM, check out the following pages:
