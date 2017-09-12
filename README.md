@@ -60,3 +60,8 @@ If you want to start your virtual machine from scratch, disconnect from it and f
 
     $ vagrant destroy
     $ vagrant up
+
+# Other Resources
+For PyCharm integration with your Vagrant VM, check out the following pages:
+- [Using Vagrant & PyCharm](https://developer.rackspace.com/blog/a-tutorial-on-application-development-using-vagrant-with-the-pycharm-ide/)
+- [PyCharm, Vagrant, Anaconda and others](http://colour-science.org/posts/pycharm-vagrant-fabric-anaconda/)
