@@ -4,10 +4,6 @@
 ## for the course ENGS108, Applied Machine Learning, Dartmouth College
 ## Adapted from: bootstrap.sh by Holberton School
 
-# Anaconda
-apt-get update -q
-su - vagrant
-
 function install {
     echo installing "$1"
     shift
@@ -20,44 +16,28 @@ function pip_install {
     pip install "$@" >/dev/null 2>&1
 }
 
-# Install Pip
-install 'pip' python-pip
+echo "updating package information"
+apt-get -y update >/dev/null 2>&1
 
-# Tensorflow
-pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
+# Theano
+install 'pip' python-pip
+install 'theano dependencies' python-numpy python-scipy python-dev python-pip python-nose g++ git libatlas3gf-base libatlas-dev
+pip_install 'theano' theano
 
 # Keras
 pip_install 'keras' keras
 mkdir /home/vagrant/keras
 git clone https://github.com/fchollet/keras /home/vagrant/keras/ >/dev/null 2>&1
 
-
-echo installing Anaconda
-miniconda=Miniconda2-4.3.21-Linux-x86_64.sh
-cd /vagrant
-if [[ ! -f $miniconda ]]; then
-    wget --quiet http://repo.continuum.io/miniconda/$miniconda
-fi
-chmod +x $miniconda
-./$miniconda -b -p /home/vagrant/anaconda
-
-echo 'export PATH="/home/vagrant/anaconda/bin:$PATH"' >> /home/vagrant/.bashrc
-source /home/vagrant/.bashrc
-chown -R vagrant:vagrant /home/vagrant/anaconda
-/home/vagrant/anaconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
-
-
-# Conda Installations
-/home/vagrant/anaconda/bin/conda install -y numpy
-/home/vagrant/anaconda/bin/conda install -y matplotlib
-/home/vagrant/anaconda/bin/conda install -y pandas
-/home/vagrant/anaconda/bin/conda install -y ipython
-/home/vagrant/anaconda/bin/conda install -y h5py
-/home/vagrant/anaconda/bin/conda install -y jupyter
-
-
 # Tensorflow
-# /home/vagrant/anaconda/bin/pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl
- 
-# Keras
-# /home/vagrant/anaconda/bin/pip install keras
+pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
+
+# Miscellaneous
+pip_install 'required Python libraries' pyyaml cython
+install 'hdf5' libhdf5-7 libhdf5-dev
+pip_install 'h5py' h5py
+pip_install 'ipython' ipython
+pip_install 'jupyter' jupyter
+install 'matplotlib' matplotlib
+
+echo 'All set!'
