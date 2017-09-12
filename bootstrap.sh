@@ -39,4 +39,4 @@ chown -R vagrant:vagrant /home/vagrant/anaconda
 /home/vagrant/anaconda/bin/pip install keras
 
 # Seaborn
-/home/vagrant/anaconda/bin/pip install seaborn
+/home/vagrant/anaconda/bin/conda install -y seaborn
