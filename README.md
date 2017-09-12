@@ -22,8 +22,13 @@ What's in the box:
 You must install VirtubalBox and Vagrant before continuing.
 
 # Getting started
+First and foremost, let's install git and gitbash (essential for windows users). Go to this [link](https://git-scm.com/downloads), download the appropriate installer for your platform, and install git. For Windows users, **be sure to install git-bash** as well.   
+
 
 Once Vagrant and VirtualBox are installed, clone this repository or import `Vagrantfile` and `bootstrap.sh` in a directory.
+
+Next, install VirtualBox Additions plugin for Vargrant. Use the following command:
+`vagrant plugin install vagrant-vbguest`
 
 From this directory, let's start your Vagrant box by typing in your terminal (it might take some time to download the Ubuntu image):
 
