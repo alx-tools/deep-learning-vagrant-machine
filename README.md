@@ -4,14 +4,14 @@ These Vagrant files automates the installation of a working Deep Learning machin
 
 What's in the box:
 * [Keras](http://keras.io/) - minimalist, highly modular neural networks library.
-* [Theano](http://deeplearning.net/software/theano/) - library to define, optimize, and evaluate mathematical expressions involving multi-dimensional arrays efficiently.
 * [Tensorflow](https://www.tensorflow.org/versions/r0.7/api_docs/index.html) - library for numerical computation using data flow graphs.
 * [Jupyter](http://jupyter.readthedocs.org/en/latest/index.html) - web application to create, share documents that contain live code, equations, visualizations and explanatory text.
+* [Anaconda](https://docs.anaconda.com/anaconda/) - python package manager and collection of libraries for scientific computing in python.
 
 ![Keras](http://imgur.com/nE0of8d.jpg "Keras")
-![Theano](http://i.imgur.com/Bb5SHxW.png "Theano")
 ![TensorFlow](http://imgur.com/rwISEz5.jpg "TensorFlow")
 ![Jupyter](http://i.imgur.com/zpzIAml.jpg "Jupyter")
+![Anaconda](https://imgur.com/BssSaI6 "Anaconda")
 
 # Requirements
 
@@ -36,18 +36,9 @@ From this directory, let's start your Vagrant box by typing in your terminal (it
 Once the setup is complete, just run:
 
     $ vagrant ssh
-You are in! Now, let's train your first recurrent neuronal network:
+You are in! 
 
-    $ python keras/examples/addition_rnn.py
-
-If you can see that, it means that you setup is working and that you are training your recurrent neuronnal network to perform addition!
-![addition_rnn-screenshot](http://i.imgur.com/u06tE6B.png)
-
-To go through the code step by step, type:
-
-    $ jupyter notebook --no-browser --ip=0.0.0.0 --FileContentsManager.root_dir=/home/vagrant/keras/examples/
-
-Open a browser and browse http://127.0.0.1:8888
+<!-- Open a browser and browse http://127.0.0.1:8888 -->
 
 Looking for some resources to get started with Deep Learning? Check out our [introductory workshops](https://github.com/holbertonschool/deep-learning).
 

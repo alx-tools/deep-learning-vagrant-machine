@@ -23,27 +23,20 @@ chown -R vagrant:vagrant /home/vagrant/anaconda
 /home/vagrant/anaconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
 
 
-# Helper Functions
-function conda_install {
-    echo installing "$1"
-    shift
-    conda install -y "$@" >/dev/null 2>&1
-}
-
-function pip_install {
-    echo installing "$1"
-    shift
-    pip install -y "$@" >/dev/null 2>&1
-}
-
 # Conda Installations
-conda_install numpy matplotlib pandas ipython h5py jupyter seaborn
+/home/vagrant/anaconda/bin/conda install -y numpy
+/home/vagrant/anaconda/bin/conda install -y matplotlib
+/home/vagrant/anaconda/bin/conda install -y pandas
+/home/vagrant/anaconda/bin/conda install -y ipython
+/home/vagrant/anaconda/bin/conda install -y h5py
+/home/vagrant/anaconda/bin/conda install -y jupyter
+
 
 # Tensorflow
-pip_install 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl
+/home/vagrant/anaconda/bin/pip install -y 'tensorflow' --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl
  
 # Keras
-pip_install 'keras' keras
+/home/vagrant/anaconda/bin/pip install -y 'keras' keras
 
 
 
