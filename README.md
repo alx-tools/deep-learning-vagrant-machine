@@ -6,11 +6,12 @@ What's in the box:
 * [Keras](http://keras.io/) - minimalist, highly modular neural networks library.
 * [Tensorflow](https://www.tensorflow.org/versions/r0.7/api_docs/index.html) - library for numerical computation using data flow graphs.
 * [Jupyter](http://jupyter.readthedocs.org/en/latest/index.html) - web application to create, share documents that contain live code, equations, visualizations and explanatory text.
-* [Anaconda](https://docs.anaconda.com/anaconda/) - python package manager and collection of libraries for scientific computing in python.
+* [Anaconda](https://docs.anaconda.com/anaconda/) - package manager and collection of libraries for scientific computing in python.
 
 ![Keras](http://imgur.com/nE0of8d.jpg "Keras")
 ![TensorFlow](http://imgur.com/rwISEz5.jpg "TensorFlow")
 ![Jupyter](http://i.imgur.com/zpzIAml.jpg "Jupyter")
+![Anaconda](https://imgur.com/qInnYVN "Anaconda")
 
 
 # Requirements
@@ -21,9 +22,9 @@ What's in the box:
 You must install VirtubalBox and Vagrant before continuing.
 
 # Getting started
-First and foremost, let's install git and gitbash (essential for windows users). Go to this [link](https://git-scm.com/downloads), download the appropriate installer for your platform, and install git. For Windows users, **be sure to install git-bash** as well.   
+**Windows Users**: First and foremost, you should install git and gitbash. Go to this [link](https://git-scm.com/downloads), download the appropriate installer for your platform, and install git. **Be sure to select the option for git-bash** as well.   
 
-Once Vagrant and VirtualBox are installed, clone this repository or import `Vagrantfile` and `bootstrap.sh` in a directory.
+Now that you have Vagrant and VirtualBox (and gitbash) installed, clone or download this repository into a directory. The main files of interest are `Vagrantfile` and `bootstrap.sh`.
 
 <!-- Next, install VirtualBox Additions plugin for Vargrant. Use the following command:
 `vagrant plugin install vagrant-vbguest` -->
@@ -37,8 +38,6 @@ Once the setup is complete, just run:
 You are in! 
 
 <!-- Open a browser and browse http://127.0.0.1:8888 -->
-
-Looking for some resources to get started with Deep Learning? Check out our [introductory workshops](https://github.com/holbertonschool/deep-learning).
 
 # Tips and tricks
 
@@ -54,6 +53,14 @@ If you want to start your virtual machine from scratch, disconnect from it and f
 
     $ vagrant destroy
     $ vagrant up
+
+
+# Using Jupyter Notebook
+Note that you cannot simply call `jupyter notebook` since the vagrant virtual machine is headless (has no gui interface). Port 8888 on the vm has been forwarded to the host machine. To run jupyter, in the vm run this command:
+
+`jupyter notebook --no-browser --ip=0.0.0.0 --port=8888`
+
+Your notebook should now be available on http://localhost:8888/. 
 
 # Known Errors and Fixes
 
