@@ -38,3 +38,5 @@ chown -R vagrant:vagrant /home/vagrant/anaconda
  
 # Keras
 /home/vagrant/anaconda/bin/pip install keras
+
+echo 'All set!'
