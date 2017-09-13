@@ -60,7 +60,7 @@ Note that you cannot simply call `jupyter notebook` since the vagrant virtual ma
 
     $ jupyter notebook --no-browser --ip=0.0.0.0 --port=8888
 
-Your notebook should now be available on http://localhost:8888/. 
+Your notebook should now be available on http://localhost:8888/. I have provided a [tutorial jupyter notebook]('https://github.com/justiceamoh/engs108-vagrant-machine/blob/master/notebooks/Keras%20Introduction.ipynb) that introduces Keras with an example neural network on the MNIST dataset. You should be able to run it in your vm now. 
 
 # Known Errors and Fixes
 
