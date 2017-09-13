@@ -58,7 +58,7 @@ If you want to start your virtual machine from scratch, disconnect from it and f
 # Using Jupyter Notebook
 Note that you cannot simply call `jupyter notebook` since the vagrant virtual machine is headless (has no gui interface). Port 8888 on the vm has been forwarded to the host machine. To run jupyter, in the vm run this command:
 
-`jupyter notebook --no-browser --ip=0.0.0.0 --port=8888`
+    $ jupyter notebook --no-browser --ip=0.0.0.0 --port=8888
 
 Your notebook should now be available on http://localhost:8888/. 
 
