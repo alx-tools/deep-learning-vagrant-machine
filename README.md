@@ -4,26 +4,30 @@ These Vagrant files automates the installation of a working Deep Learning machin
 
 What's in the box:
 * [Keras](http://keras.io/) - minimalist, highly modular neural networks library.
-* [Theano](http://deeplearning.net/software/theano/) - library to define, optimize, and evaluate mathematical expressions involving multi-dimensional arrays efficiently.
 * [Tensorflow](https://www.tensorflow.org/versions/r0.7/api_docs/index.html) - library for numerical computation using data flow graphs.
 * [Jupyter](http://jupyter.readthedocs.org/en/latest/index.html) - web application to create, share documents that contain live code, equations, visualizations and explanatory text.
+* [Anaconda](https://docs.anaconda.com/anaconda/) - package manager and collection of libraries for scientific computing in python.
 
 ![Keras](http://imgur.com/nE0of8d.jpg "Keras")
-![Theano](http://i.imgur.com/Bb5SHxW.png "Theano")
 ![TensorFlow](http://imgur.com/rwISEz5.jpg "TensorFlow")
 ![Jupyter](http://i.imgur.com/zpzIAml.jpg "Jupyter")
+![Anaconda](https://imgur.com/qInnYVN.jpg "Anaconda")
+
 
 # Requirements
 
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 
 You must install VirtubalBox and Vagrant before continuing.
 
 # Getting started
+**Windows Users**: First and foremost, you should install git and gitbash. Go to this [link](https://git-scm.com/downloads), download the appropriate installer for your platform, and install git. **Be sure to select the option for git-bash** as well.   
 
-Once Vagrant and VirtualBox are installed, clone this repository or import `Vagrantfile` and `bootstrap.sh` in a directory.
+Now that you have Vagrant and VirtualBox (and gitbash) installed, clone or download this repository into a directory. The main files of interest are `Vagrantfile` and `bootstrap.sh`.
+
+<!-- Next, install VirtualBox Additions plugin for Vargrant. Use the following command:
+`vagrant plugin install vagrant-vbguest` -->
 
 From this directory, let's start your Vagrant box by typing in your terminal (it might take some time to download the Ubuntu image):
 
@@ -31,20 +35,9 @@ From this directory, let's start your Vagrant box by typing in your terminal (it
 Once the setup is complete, just run:
 
     $ vagrant ssh
-You are in! Now, let's train your first recurrent neuronal network:
+You are in! 
 
-    $ python keras/examples/addition_rnn.py
-
-If you can see that, it means that you setup is working and that you are training your recurrent neuronnal network to perform addition!
-![addition_rnn-screenshot](http://i.imgur.com/u06tE6B.png)
-
-To go through the code step by step, type:
-
-    $ jupyter notebook --no-browser --ip=0.0.0.0 --FileContentsManager.root_dir=/home/vagrant/keras/examples/
-
-Open a browser and browse http://127.0.0.1:8888
-
-Looking for some resources to get started with Deep Learning? Check out our [introductory workshops](https://github.com/holbertonschool/deep-learning).
+<!-- Open a browser and browse http://127.0.0.1:8888 -->
 
 # Tips and tricks
 
@@ -60,3 +53,32 @@ If you want to start your virtual machine from scratch, disconnect from it and f
 
     $ vagrant destroy
     $ vagrant up
+
+
+# Using Jupyter Notebook
+Note that you cannot simply call `jupyter notebook` since the vagrant virtual machine is headless (has no gui interface). Port 8888 on the vm has been forwarded to the host machine. To run jupyter, in the vm run this command:
+
+    $ jupyter notebook --no-browser --ip=0.0.0.0 --port=8888
+
+Your notebook should now be available on http://localhost:8888/. I have provided a [tutorial jupyter notebook]('https://github.com/justiceamoh/engs108-vagrant-machine/blob/master/notebooks/Keras%20Introduction.ipynb) that introduces Keras with an example neural network on the MNIST dataset. You should be able to run it in your vm now. 
+
+# Known Errors and Fixes
+
+1. `vagrant up` command exits with an error saying that `forwarded port to 8888` is already in use by the host machine.
+    + On Mac: 
+        - Run `sudo lsof -i:8888`. This is to find the process which is using port `8888`.
+        - Copy the process's `PID`. This is the ProcessID associated to that process.
+        - Run `kill <Paste ProcessID here>`. This is to terminate the process.
+        - Run `vagrant up` again.
+
+2. When inside the Virtual Machine (after runing `vagrant ssh`) running `Jupyter Notebook` results in a screen saying that `Jupyter Notebook requires Javascript`.
+    - Press `q` and then `y` to exit that screen.
+    - Press `ctrl` + `c` to exit Jupyter.
+    - Type `jupyter notebook --no-browser --ip=0.0.0.0 --port=8888`.
+    - Jupyter Notebook should pop up in your browser.   
+
+
+# Other Resources
+For PyCharm integration with your Vagrant VM, check out the following pages:
+- [Using Vagrant & PyCharm](https://developer.rackspace.com/blog/a-tutorial-on-application-development-using-vagrant-with-the-pycharm-ide/)
+- [PyCharm, Vagrant, Anaconda and others](http://colour-science.org/posts/pycharm-vagrant-fabric-anaconda/)
