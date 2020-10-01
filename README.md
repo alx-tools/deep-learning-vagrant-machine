@@ -1,6 +1,6 @@
 # Deep Learning	Vagrant	Machine
 
-These Vagrant files automates the installation of a working Deep Learning machine running on Ubuntu 14.04.
+These Vagrant files automates the installation of a working Deep Learning machine running on Ubuntu 14.04 and you can also run this on Windows for Both you can Install .
 
 What's in the box:
 * [Keras](http://keras.io/) - minimalist, highly modular neural networks library.
