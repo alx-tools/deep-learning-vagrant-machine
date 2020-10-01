@@ -8,6 +8,7 @@ What's in the box:
 * [Tensorflow](https://www.tensorflow.org/versions/r0.7/api_docs/index.html) - library for numerical computation using data flow graphs.
 * [Jupyter](http://jupyter.readthedocs.org/en/latest/index.html) - web application to create, share documents that contain live code, equations, visualizations and explanatory text.
 
+
 ![Keras](http://imgur.com/nE0of8d.jpg "Keras")
 ![Theano](http://i.imgur.com/Bb5SHxW.png "Theano")
 ![TensorFlow](http://imgur.com/rwISEz5.jpg "TensorFlow")
@@ -15,9 +16,9 @@ What's in the box:
 
 # Requirements
 
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+*  [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-* [Vagrant](https://www.vagrantup.com/downloads.html)
+*  [Vagrant](https://www.vagrantup.com/downloads.html)
 
 You must install VirtubalBox and Vagrant before continuing.
 
@@ -27,10 +28,10 @@ Once Vagrant and VirtualBox are installed, clone this repository or import `Vagr
 
 From this directory, let's start your Vagrant box by typing in your terminal (it might take some time to download the Ubuntu image):
 
-    $ vagrant up
+     $ vagrant up
 Once the setup is complete, just run:
 
-    $ vagrant ssh
+     $ vagrant ssh
 You are in! Now, let's train your first recurrent neuronal network:
 
     $ python keras/examples/addition_rnn.py
